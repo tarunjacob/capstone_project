@@ -1,8 +1,7 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 import propTypes from 'prop-types';
 
-import { styled, alpha } from '@mui/material/styles';
+import { styled, alpha, createTheme, ThemeProvider, } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -59,9 +58,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-
+const theme = createTheme({
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: '#004d40',
+    },
+    secondary: {
+      // This is green.A700 as hex.
+      main: '#ec407a',
+    },
+  },
+});
 const AppSearchBar = (props) => {
-  const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -79,7 +88,6 @@ const AppSearchBar = (props) => {
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
-    history.push('/register')
   };
 
   const handleMobileMenuOpen = (event) => {
@@ -105,7 +113,7 @@ const AppSearchBar = (props) => {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem> <Logout /></MenuItem>
+      <MenuItem onClick={handleMenuClose}> <Logout /></MenuItem>
     </Menu>
   );
 
@@ -128,7 +136,7 @@ const AppSearchBar = (props) => {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+          <Badge color="error">
             <MailIcon />
           </Badge>
         </IconButton>
@@ -140,7 +148,7 @@ const AppSearchBar = (props) => {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
+          <Badge color="error">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -163,6 +171,7 @@ const AppSearchBar = (props) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <ThemeProvider theme={theme}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -180,7 +189,7 @@ const AppSearchBar = (props) => {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Amazon
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -194,7 +203,7 @@ const AppSearchBar = (props) => {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
+              <Badge color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
@@ -203,7 +212,7 @@ const AppSearchBar = (props) => {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
+              <Badge color="error">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
@@ -238,6 +247,7 @@ const AppSearchBar = (props) => {
       <div>
         {props.children}
       </div>
+      </ThemeProvider>
     </Box>
   );
 }

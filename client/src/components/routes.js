@@ -4,7 +4,6 @@ import Register from "../pages/register";
 import Dashboard from "../pages/dashboard";
 import AppRoute from "./appRoute";
 import AppSearchBar from "./appBar";
-import LandingLayout from "./LandingLayout";
 
 const Routes = () => {
     return (

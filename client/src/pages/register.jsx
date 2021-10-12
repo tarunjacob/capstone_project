@@ -1,9 +1,29 @@
 import React from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { TextField, Grid, Button } from '@mui/material';
-import Logout from '../components/logout';
+import { TextField, Grid, Button, Paper, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        minHeight: '70vh'
+    },
+    pad: {
+        paddingTop: 15,
+    },
+    mar: {
+        marginTop:30,
+    },
+    paper: {
+        width: 450,
+        height: 550,
+        margin: "auto",
+        paddingTop: 50,
+        textAlign: 'center',
+    }
+}));
 const Register = () => {
+    const classes = useStyles();
     const history = useHistory();
     const [details, setDetails] = React.useState({});
     const handleChange = (e) => {
@@ -26,9 +46,17 @@ const Register = () => {
         }
     }
     return (
-        <Grid align='center'>
+        <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        className={classes.root}
+    >
+        <Paper variant="elevation" elevation={4} className={classes.paper} >
             <Grid>
-                Register Page
+                <Typography variant='h6'> Register </Typography>
             </Grid>
             <Grid>
                 <TextField label='user name' name='user_name' value={details.user_name} variant='standard' onChange={e => handleChange(e)}></TextField>
@@ -48,14 +76,13 @@ const Register = () => {
             <Grid>
                 <TextField label='password' name='password' value={details.password} variant='standard' type='password' onChange={e => handleChange(e)}></TextField>
             </Grid>
-            <Grid>
-                <Button onClick={register}> Register! </Button>
+            <Grid className={classes.mar}>
+                <Button color='secondary' onClick={register}> Register! </Button>
             </Grid>
-            <Grid>
-                <Button onClick={() => history.push('/')}> Sign in instead!</Button>
-                <Button> <Logout /> </Button>
+            <Grid className={classes.pad}>
+                <Button color='secondary' onClick={() => history.push('/')}> Sign in instead!</Button>
             </Grid>
-
+        </Paper>
         </Grid >
     )
 }
