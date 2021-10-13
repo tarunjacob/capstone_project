@@ -23,7 +23,7 @@ exports.checkEmail = (email) => {
 exports.register = (user_name, first_name, last_name, email_address, phone_number, password) => {
     return new Promise((resolve, rej) => {
         argon2.hash(password).then(hashedPassword => {
-            db.query('INSERT INTO users (user_name, first_name, last_name, email_address, phone_number, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING uid, email_address', [user_name, first_name, last_name, email_address, phone_number, hashedPassword], (err, results, fields) => {
+            db.query('INSERT INTO users (user_name, first_name, last_name, email_address, phone_number, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING uid, first_name, email_address', [user_name, first_name, last_name, email_address, phone_number, hashedPassword], (err, results, fields) => {
                 if(err){
                     err.status(500);
                     return rej(err);
