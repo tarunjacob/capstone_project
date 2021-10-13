@@ -159,7 +159,7 @@ exports.updateProductInventory = (quantity) => {
 
 exports.view = () => {
     return new Promise((resolve, rej) => {
-        db.query('SELECT product_name, product_price, product_image from products', (err, results, fields) => {
+        db.query('SELECT product_id, product_name, product_price, product_image from products', (err, results, fields) => {
             if(err){
                 err.status(500);
                 return rej(err);
