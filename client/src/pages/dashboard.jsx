@@ -1,5 +1,7 @@
 import React from 'react';
 import { Typography } from '@mui/material';
+import axios from 'axios';
+
 const Dashboard = () => {
     const first_name = localStorage.getItem('name');
     const [name, setName] = React.useState(first_name);

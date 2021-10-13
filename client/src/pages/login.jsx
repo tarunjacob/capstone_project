@@ -66,10 +66,10 @@ const Login = () => {
                     <TextField label='password' name='password' type='password' value={details.password} variant='standard' onChange={e => handleChange(e)}></TextField>
                 </Grid>
                 <Grid item className={classes.mar}>
-                    <Button color="secondary" onClick={login}>Log In!</Button>
+                    <Button variant="contained" color="secondary" onClick={login}>Log In</Button>
                 </Grid>
                 <Grid item className={classes.pad}>
-                    <Button color="secondary" onClick={() => history.push('/register')}> Sign up instead!</Button>
+                    <Button color="secondary" onClick={() => history.push('/register')}> Create a new account </Button>
                 </Grid>
             </Paper>
         </Grid>

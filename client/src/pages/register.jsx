@@ -77,10 +77,10 @@ const Register = () => {
                 <TextField label='password' name='password' value={details.password} variant='standard' type='password' onChange={e => handleChange(e)}></TextField>
             </Grid>
             <Grid className={classes.mar}>
-                <Button color='secondary' onClick={register}> Register! </Button>
+                <Button variant="contained" color='secondary' onClick={register}> Register! </Button>
             </Grid>
             <Grid className={classes.pad}>
-                <Button color='secondary' onClick={() => history.push('/')}> Sign in instead!</Button>
+                <Button color='secondary' onClick={() => history.push('/')}> Already have an account? </Button>
             </Grid>
         </Paper>
         </Grid >
