@@ -19,6 +19,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Logout from './logout';
 
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -62,7 +63,8 @@ const theme = createTheme({
   palette: {
     primary: {
       // Purple and green play nicely together.
-      main: '#263238',
+      main: '#f5f7f6',
+      // main: '#263238',
     },
     secondary: {
       // This is green.A700 as hex.
@@ -189,7 +191,7 @@ const AppSearchBar = (props) => {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            Amazon
+            Messina
           </Typography>
           <Search>
             <SearchIconWrapper>
