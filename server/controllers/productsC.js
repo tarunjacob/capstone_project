@@ -87,6 +87,15 @@ exports.view = async (req, res) => {
     }
 };
 
+exports.viewCategories = async (req, res) => {
+    try {
+        const result = await serviceProduct.viewCategories();
+        res.status(200).send(result);
+    } catch (error) {
+        res.status(error.status || 500).send(error);
+    }
+};
+
 exports.viewByCategory = async (req, res) => {
     const category_id  = req.params.category_id;
     try {

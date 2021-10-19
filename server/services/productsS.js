@@ -106,6 +106,16 @@ exports.view = () => {
     })
 }
 
+exports.viewCategories = () => {
+    return new Promise(async (res, rej) => {
+        try {
+            res(repositoryProduct.viewCategories());
+        } catch (error) {
+            return rej(error);
+        }
+    })
+}
+
 exports.viewByCategory = (category_id) => {
     return new Promise(async (res, rej) => {
         try {

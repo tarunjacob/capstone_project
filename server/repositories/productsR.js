@@ -176,6 +176,25 @@ exports.view = () => {
     });
 };
 
+exports.viewCategories = () => {
+    return new Promise((resolve, rej) => {
+        db.query('SELECT category_id, category_name, category_description FROM product_category', (err, results, fields) => {
+            if(err){
+                err.status(500);
+                return rej(err);
+            }
+
+            if (results['rowCount'] == 0) {
+                let err = new Error(404);
+                err.status = 404;
+                err.response = "No Categories found";
+                return reject(err);
+              }
+              resolve(results['rows']);
+        });
+    });
+};
+
 exports.viewByCategory = (category_id) => {
     return new Promise((resolve, reject) => {
       db.query('SELECT * FROM products WHERE product_category = $1', [category_id], (err, result, _fields) => {

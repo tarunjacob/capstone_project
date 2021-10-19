@@ -11,6 +11,7 @@ route.put("/updateProductCategory", controlProduct.updateProductCategory);
 route.delete("/deleteProductCategory/:category_id", controlProduct.deleteProductCategory);
 route.put("/updateProductInventory", controlProduct.updateProductInventory);
 route.get("/view", controlProduct.view);
+route.get("/viewCategories", controlProduct.viewCategories);
 route.get("/viewByCategory/:category_id", controlProduct.viewByCategory);
 route.get("/viewRecommendation/:uid", controlProduct.viewRecommendation);
 route.post("/viewedProducts", controlProduct.viewedProducts);
