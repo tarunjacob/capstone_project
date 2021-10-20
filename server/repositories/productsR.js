@@ -178,7 +178,7 @@ exports.view = () => {
 
 exports.viewCategories = () => {
     return new Promise((resolve, rej) => {
-        db.query('SELECT category_id, category_name, category_description FROM product_category', (err, results, fields) => {
+        db.query('SELECT category_id, category_name, category_description, category_photo FROM product_category', (err, results, fields) => {
             if(err){
                 err.status(500);
                 return rej(err);
