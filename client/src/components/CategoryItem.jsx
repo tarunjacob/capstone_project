@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { useHistory } from "react-router";
 const Container = styled.div`
   flex: 1;
   margin: 3px;
@@ -40,12 +40,13 @@ const Button = styled.button`
 `;
 
 const CategoryItem = ({ item }) => {
+  const history = useHistory();
   return (
     <Container>
-      <Image src={item.img} />
+      <Image src={item.category_photo} />
       <Info>
-        <Title>{item.title}</Title>
-        <Button>SHOP NOW</Button>
+        <Title>{item.category_name}</Title>
+        <Button onClick={()=>history.push(`/shop-category/${item.category_name}/${item.category_id}`)}>SHOP NOW</Button>
       </Info>
     </Container>
   );

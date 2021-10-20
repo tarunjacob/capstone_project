@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Divider, Paper } from '@mui/material';
 import axios from 'axios';
 import { makeStyles } from '@mui/styles';
-import Carousel from 'react-bootstrap/Carousel';
+// import Carousel from 'react-bootstrap/Carousel';
 import Categories from '../components/Categories'
 import Footer from '../components/Footer'
 import Slider from '../components/Slider'
