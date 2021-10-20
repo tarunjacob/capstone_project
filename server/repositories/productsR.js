@@ -209,7 +209,6 @@ exports.viewByCategory = (category_id) => {
           err.response = "No products found";
           return reject(err);
         }
-        console.log(result);
         resolve({ "Response": result['rows'] });
       });
     });
