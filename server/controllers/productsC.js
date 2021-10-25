@@ -106,6 +106,17 @@ exports.viewByCategory = async (req, res) => {
     }
 };
 
+exports.viewSpecificProduct = async (req, res) => {
+    const product_id  = req.params.product_id;
+    try {
+        const result = await serviceProduct.viewSpecificProduct(product_id);
+        res.status(200).send(result);
+    } catch (error) {
+        res.status(error.status || 500).send(error);
+    }
+};
+viewSpecificProduct
+
 exports.viewRecommendation = async (req, res) => {
     const uid = req.params.uid;
     try {

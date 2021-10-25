@@ -214,6 +214,25 @@ exports.viewByCategory = (category_id) => {
     });
   };
 
+  exports.viewSpecificProduct = (product_id) => {
+    return new Promise((resolve, reject) => {
+      db.query('SELECT * FROM products WHERE products WHERE product_id = $1', [product_id], (err, result, _fields) => {
+        if (err) {
+          err.status = 500;
+          return reject(err);
+        }
+  
+        if (result['rowCount'] == 0) {
+          let err = new Error(404);
+          err.status = 404;
+          err.response = "No products found";
+          return reject(err);
+        }
+        resolve({ "Response": result['rows'] });
+      });
+    });
+  };
+  
   exports.viewRecommendation = (uid) => {
     return new Promise((resolve, reject) => {
       db.query('SELECT * FROM viewed_products WHERE uid = $1', [uid], (err, result, _fields) => {

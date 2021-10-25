@@ -4,7 +4,7 @@ const pool = require("./db");
 
 const routeAuth = require('./routes/authentication');
 const routeProducts = require('./routes/products');
-
+const routeOrders = require('./routes/orders');
 
 const app = express();
 
@@ -26,6 +26,7 @@ app.use((req, res, next) => {
 
 app.use("/auth",routeAuth);
 app.use("/products",routeProducts);
+app.use("/orders",routeOrders)
 
 app.listen(8000, () => {
   console.log(`Server is running at port 8000.`);

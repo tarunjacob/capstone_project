@@ -13,6 +13,7 @@ route.put("/updateProductInventory", controlProduct.updateProductInventory);
 route.get("/view", controlProduct.view);
 route.get("/viewCategories", controlProduct.viewCategories);
 route.get("/viewByCategory/:category_id", controlProduct.viewByCategory);
+route.get("/viewSpecificProduct/:product_id", controlProduct.viewSpecificProduct);
 route.get("/viewRecommendation/:uid", controlProduct.viewRecommendation);
 route.post("/viewedProducts", controlProduct.viewedProducts);
 

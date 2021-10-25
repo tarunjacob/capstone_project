@@ -127,6 +127,17 @@ exports.viewByCategory = (category_id) => {
     })
 }
 
+exports.viewSpecificProduct = (product_id) => {
+    return new Promise(async (res, rej) => {
+        try {
+            const products_id = await repositoryProduct.viewSpecificProduct(product_id);
+            res(products_id);
+        } catch (error) {
+            return rej(error);
+        }
+    })
+}
+
 exports.viewRecommendation = (uid) => {
     return new Promise(async (res, rej) => {
         try {
