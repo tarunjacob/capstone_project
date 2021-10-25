@@ -115,7 +115,6 @@ exports.viewSpecificProduct = async (req, res) => {
         res.status(error.status || 500).send(error);
     }
 };
-viewSpecificProduct
 
 exports.viewRecommendation = async (req, res) => {
     const uid = req.params.uid;
