@@ -228,7 +228,7 @@ exports.viewByCategory = (category_id) => {
           err.response = "No products found";
           return reject(err);
         }
-        resolve({ "Response": result['rows'] });
+        resolve({ "Response": result['rows'][0] });
       });
     });
   };
