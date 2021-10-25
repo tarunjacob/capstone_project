@@ -216,7 +216,7 @@ exports.viewByCategory = (category_id) => {
 
   exports.viewSpecificProduct = (product_id) => {
     return new Promise((resolve, reject) => {
-      db.query('SELECT * FROM products WHERE products WHERE product_id = $1', [product_id], (err, result, _fields) => {
+      db.query('SELECT * FROM products WHERE product_id = $1', [product_id], (err, result, _fields) => {
         if (err) {
           err.status = 500;
           return reject(err);
